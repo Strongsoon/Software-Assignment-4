@@ -1,9 +1,0 @@
-public class Post {
-    private int postID;
-    private String postTitle;
-    private String postBody;
-    private String[] postTags;
-    private String[] postType; // = {"Very Difficult", "Difficult", "Easy"};
-    private String[] postEmergency; // = {"Immediately Needed", "Highly Needed", "Ordinary"};
-    private ArrayList<String> postComments = new ArrayList<>();
-}
