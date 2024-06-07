@@ -2,34 +2,31 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class TestInvalidComment {
+class TestUpperCaseComment {
 
     @Test
-    public void testAddCommentInvalidCase() {
+    public void testAddCommentValidFirstLetter() {
         Posts post = new Posts();
-        post.setPostTitle("Valid Post Title");
+        post.setPostTitle("ValidPostTitle");
         post.setPostBody("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce odio mauris, porttitor in dolor eu, vulputate ornare erat. Fusce ornare ante nisl, in ultrices nulla hendrerit ut. Nulla facilisi. Ut molestie urna tortor, eget pharetra lectus porta at. Nunc commodo odio non lorem tristique mattis. Fusce sed leo.");
         post.setPostTags(new String[] {"tag1", "tag2"});
         post.setPostType("Difficult");
         post.setPostEmergency("Highly Needed");
+        post.addPost();
 
-        post.addPost();  // Add post first
-
-        assertFalse(post.addComment("invalid comment"));
+        assertTrue(post.addComment("This is a valid comment"));
     }
     
     @Test
-    public void testAddCommentValid() {
+    public void testAddCommentInvalidFirstLetter() {
         Posts post = new Posts();
-        //setters
-        post.setPostTitle("Valid Post Title");
+        post.setPostTitle("ValidPostTitle");
         post.setPostBody("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce odio mauris, porttitor in dolor eu, vulputate ornare erat. Fusce ornare ante nisl, in ultrices nulla hendrerit ut. Nulla facilisi. Ut molestie urna tortor, eget pharetra lectus porta at. Nunc commodo odio non lorem tristique mattis. Fusce sed leo.");
         post.setPostTags(new String[] {"tag1", "tag2"});
         post.setPostType("Difficult");
         post.setPostEmergency("Highly Needed");
-        //add posts
         post.addPost();
 
-        assertTrue(post.addComment("This is valid cause so"));
+        assertFalse(post.addComment("this comment starts with a lowercase letter"));
     }
 }
